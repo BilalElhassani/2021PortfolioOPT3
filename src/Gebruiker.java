@@ -16,6 +16,14 @@ public class Gebruiker {
 
     public String soortContract(int antwoordSoortContract){
         String a = null;
+        if(0 <= antwoordSoortContract && antwoordSoortContract <= 9){
+            a = "all-in uurloon";
+        } else if( 9 < antwoordSoortContract && antwoordSoortContract <= 15){
+            a = "all-in uurloon - belasting";
+        } else if(antwoordSoortContract > 15){
+            a = "uurloon + vakantiegeld";
+        }
+
         return a;
     }
 
