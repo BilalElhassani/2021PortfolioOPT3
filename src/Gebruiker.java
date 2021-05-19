@@ -11,7 +11,7 @@ public class Gebruiker {
     }
 
     public boolean toegelaten(String contractAntwoord, String werkgeverAntwoord, int filiaalAntwoord){
-        return true;
+        return contractAntwoord.equalsIgnoreCase(contract) && werkgeverAntwoord.equalsIgnoreCase(werkgever) && filiaalAntwoord == filiaal;
     }
 
     public String soortContract(int antwoordSoortContract){
