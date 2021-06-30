@@ -1,18 +1,32 @@
-public class Gebruiker {
+package Model;
+
+public abstract class Gebruiker {
 
     private String naam;
     private String geboortedatum;
     private String contract;
     private String functionaliteit;
-    private int filiaal;
+    private String filiaal;
+    private String wachtwoord;
+    private String gebruikersnaam;
 
-    public Gebruiker (String naam, String geboortedatum, String contract, String functionaliteit, int filiaal){
+    public Gebruiker (String naam){
         this.naam = naam;
-        this.geboortedatum = geboortedatum;
-        this.contract = contract;
-        this.functionaliteit = functionaliteit;
-        this.filiaal = filiaal;
     }
+
+    public void setNaam(String naam) { this.naam = naam; }
+
+    public void setGeboortedatum(String geboortedatum) { this.geboortedatum = geboortedatum;}
+
+    public void setContract(String contract) { this.contract = contract; }
+
+    public void setFunctionaliteit(String functionaliteit) { this.functionaliteit = functionaliteit; }
+
+    public void setFiliaal(String filiaal) { this.filiaal = filiaal; }
+
+    public void setWachtwoord(String wachtwoord) { this.wachtwoord = wachtwoord; }
+
+    public void setGebruikersnaam(String gebruikersnaam) { this.gebruikersnaam = gebruikersnaam; }
 
     public String getNaam() {
         return this.naam;
@@ -30,11 +44,13 @@ public class Gebruiker {
         return this.functionaliteit;
     }
 
-    public int getFiliaal() {
-        return this.filiaal;
-    }
+    public String getFiliaal() { return this.filiaal; }
 
-    public boolean toegelaten(String contractAntwoord, String werkgeverAntwoord, int filiaalAntwoord){
+    public String getWachtwoord() { return wachtwoord; }
+
+    public String getGebruikersnaam() { return gebruikersnaam; }
+
+    public boolean toegelaten(String contractAntwoord, String werkgeverAntwoord, String filiaalAntwoord){
         return contractAntwoord.equalsIgnoreCase(contract) && werkgeverAntwoord.equalsIgnoreCase(functionaliteit) && filiaalAntwoord == filiaal;
     }
 
@@ -51,7 +67,7 @@ public class Gebruiker {
         return a;
     }
 
-    public String loon(String contractAntwoord, String werkgeverAntwoord, int filiaalAntwoord, int antwoordSoortContract){
+    public String loon(String contractAntwoord, String werkgeverAntwoord, String filiaalAntwoord, int antwoordSoortContract){
         String a = null;
         if(contractAntwoord.equals(contract)){
             if(0 <= antwoordSoortContract && antwoordSoortContract <= 9){
