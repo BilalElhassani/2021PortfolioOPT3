@@ -10,8 +10,8 @@ public class Login {
 
     private Login() throws FileNotFoundException{
         this.dbs = new Database();
-        dbs.readWerkgever("Gebruikers.txt");
-        dbs.readWerknemer("Gebruikers.txt");
+        dbs.readManager("Gebruikers.txt");
+        dbs.readShiftleader("Gebruikers.txt");
         loggedInGebruiker = null;
     }
 

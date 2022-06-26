@@ -1,10 +1,11 @@
 package Controller;
 
-import Model.Werkgever;
+import Model.Planning;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import Model.Login;
 import java.io.FileNotFoundException;
@@ -18,19 +19,31 @@ public class HubController implements Initializable {
     private final Login login = Login.getInstance();
 
     @FXML
-    private Label userProfile;
+    private Label eindTijd;
 
     @FXML
     private AnchorPane rootPane;
 
     @FXML
-    private Label BadgeLabel;
+    private TextField colliesField;
+
+    @FXML
+    private TextField medewerkersField;
+
+    @FXML
+    void bereken() throws IOException {
+        Planning planning = new Planning();
+        planning.setCollies(Integer.parseInt(colliesField.getText()));
+        planning.setMedewerkers(Integer.parseInt(medewerkersField.getText()));
+        planning.berekenEindTijd(Integer.parseInt(colliesField.getText()), Integer.parseInt(medewerkersField.getText()));
+        eindTijd.setText(Double.toString(planning.getEindtijd()));
+    }
 
     public HubController() throws FileNotFoundException {
     }
 
     public void logout() throws IOException {
-        Login.getInstance().logout();
+        login.getInstance().logout();
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/HomeScreen.fxml")));
         rootPane.getChildren().setAll(pane);
     }
@@ -40,5 +53,5 @@ public class HubController implements Initializable {
 
     }
 
-    //hier komt agenda
+
 }

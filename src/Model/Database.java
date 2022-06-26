@@ -15,60 +15,60 @@ public class Database {
         this.gebruikers = new ArrayList<>();
     }
 
-    public void readWerkgever(String fileName) throws FileNotFoundException{
+    public void readManager(String fileName) throws FileNotFoundException{
         File file = new File(fileName);
         scanner = new Scanner(new File(file.getAbsolutePath()));
 
         while (scanner.hasNextLine()) {
             String[] split = scanner.nextLine().split(",");
 
-            Werkgever werkgever = new Werkgever(split[0]);
-            werkgever.setGebruikersnaam(split[1]);
-            werkgever.setWachtwoord(split[2]);
-            werkgever.setWerkgeverCode(split[3]);
-            werkgever.setGeboortedatum(split[4]);
-            this.addWerkgeverToList(werkgever);
+            Manager manager = new Manager(split[0]);
+            manager.setGebruikersnaam(split[1]);
+            manager.setWachtwoord(split[2]);
+            manager.setAfdeling(split[3]);
+            manager.setGeboortedatum(split[4]);
+            this.addManagerToList(manager);
         }
     }
 
-    public void readWerknemer(String fileName) throws FileNotFoundException{
+    public void readShiftleader(String fileName) throws FileNotFoundException{
         File file = new File(fileName);
         scanner = new Scanner(new File(file.getAbsolutePath()));
 
         while (scanner.hasNextLine()) {
 
             String[] split = scanner.nextLine().split(",");
-            Werknemer werknemer = new Werknemer(split[0]);
-            werknemer.setGebruikersnaam(split[1]);
-            werknemer.setWachtwoord(split[2]);
-            werknemer.setGeboortedatum(split[3]);
-            this.addWerknemerToList(werknemer);
+            Shiftleader shiftleader = new Shiftleader(split[0]);
+            shiftleader.setGebruikersnaam(split[1]);
+            shiftleader.setWachtwoord(split[2]);
+            shiftleader.setGeboortedatum(split[3]);
+            this.addShiftleaderToList(shiftleader);
         }
     }
 
-    public void werknemerFileWriter(Werknemer werknemer) throws IOException{
+    public void shiftleaderFileWriter(Shiftleader shiftleader) throws IOException{
         File file = new File("Gebruikers.txt");
         PrintWriter pw = new PrintWriter(new FileWriter(file.getAbsolutePath(),false));
 
-        this.addWerknemerToList(werknemer);
+        this.addShiftleaderToList(shiftleader);
 
-        pw.println(werknemer.getNaam()+ "," + werknemer.getGebruikersnaam()+ "," + werknemer.getWachtwoord()+ "," + werknemer.getGeboortedatum());
+        pw.println(shiftleader.getNaam()+ "," + shiftleader.getGebruikersnaam()+ "," + shiftleader.getWachtwoord()+ "," + shiftleader.getGeboortedatum());
         pw.close();
     }
 
-    public void werkgeverFileWriter(Werkgever werkgever) throws IOException {
+    public void managerFileWriter(Manager manager) throws IOException {
         File file = new File("Gebruikers.txt");
         PrintWriter pw = new PrintWriter(new FileWriter(file.getAbsolutePath(),false));
 
-        this.addWerkgeverToList(werkgever);
+        this.addManagerToList(manager);
 
-        pw.println(werkgever.getNaam()+ "," + werkgever.getGebruikersnaam()+ "," + werkgever.getWachtwoord()+ "," + werkgever.getWerkgeverCode()+ "," + werkgever.getGeboortedatum());
+        pw.println(manager.getNaam()+ "," + manager.getGebruikersnaam()+ "," + manager.getWachtwoord()+ "," + manager.getAfdeling()+ "," + manager.getGeboortedatum());
         pw.close();
     }
 
-    public void addWerkgeverToList(Werkgever werkgever){ gebruikers.add(werkgever);}
+    public void addManagerToList(Manager manager){ gebruikers.add(manager);}
 
-    public void addWerknemerToList(Werknemer werknemer){ gebruikers.add(werknemer);}
+    public void addShiftleaderToList(Shiftleader shiftleader){ gebruikers.add(shiftleader);}
 
     public ArrayList<Gebruiker> getGebruikers(){ return gebruikers;}
 }

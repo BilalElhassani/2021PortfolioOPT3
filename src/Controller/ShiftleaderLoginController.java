@@ -1,5 +1,6 @@
 package Controller;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -14,7 +15,7 @@ import java.text.ParseException;
 import java.util.Objects;
 
 
-public class WerkgeverLoginController {
+public class ShiftleaderLoginController {
 
     @FXML
     private AnchorPane rootPane;

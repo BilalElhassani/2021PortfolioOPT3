@@ -4,22 +4,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import Model.Werknemer;
-import Model.Database;
+import Model.Manager;
 import Model.Login;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class RegisterWerknemerController implements Initializable {
+public class RegisterManagerController implements Initializable {
 
     Login login = Login.getInstance();
 
@@ -36,12 +32,15 @@ public class RegisterWerknemerController implements Initializable {
     private TextField naamField;
 
     @FXML
+    private TextField afdelingField;
+
+    @FXML
     private DatePicker myBirthDate;
 
     @FXML
     private Label ErrorField;
 
-    public RegisterWerknemerController() throws FileNotFoundException {
+    public RegisterManagerController() throws FileNotFoundException {
     }
 
     @FXML
@@ -51,16 +50,15 @@ public class RegisterWerknemerController implements Initializable {
     }
 
     @FXML
-    void registerWerknemer() throws IOException {
-        Werknemer werknemer = new Werknemer(naamField.getText());
-        werknemer.setGebruikersnaam(gebruikersnaamField.getText());
-        werknemer.setWachtwoord(wachtwoordField.getText());
-        werknemer.setGeboortedatum(myBirthDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-        werknemer.setContract("werknemerscontract");
-        werknemer.setFunctionaliteit("werknemer");
-        werknemer.setFiliaal("1530D");
-        Login.getInstance().getDbs().werknemerFileWriter(werknemer);
-        login.getDbs().addWerknemerToList(werknemer);
+    void registerManager() throws IOException {
+        Manager manager = new Manager(naamField.getText());
+        manager.setAfdeling(afdelingField.getText());
+        manager.setGebruikersnaam(gebruikersnaamField.getText());
+        manager.setWachtwoord(wachtwoordField.getText());
+        manager.setGeboortedatum(myBirthDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        manager.setFiliaal("1530D");
+        Login.getInstance().getDbs().managerFileWriter(manager);
+        login.getDbs().addManagerToList(manager);
         backToHome();
     }
 
@@ -68,7 +66,7 @@ public class RegisterWerknemerController implements Initializable {
         if (gebruikersnaamField.getText() != null && wachtwoordField.getText() != null && naamField.getText() != null ) {
 
             if (!login.registerCheck(gebruikersnaamField.getText())) {
-                registerWerknemer();
+                registerManager();
                 backToHome();
             } else {
                 ErrorField.setText("Gebruikersnaam bestaat al.");

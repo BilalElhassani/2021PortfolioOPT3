@@ -13,9 +13,9 @@
          <font>
             <Font size="30.0" />
          </font></Label>
-      <Button fx:id="werkgeverLogin" layoutX="110.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#werkgeverLogin" prefHeight="70.0" prefWidth="138.0" text="Werkgever Login" />
-      <Button fx:id="registerWerkgeverButton" layoutX="110.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#registerWerkgeverButton" prefHeight="70.0" prefWidth="138.0" text="Register Werkgever" />
-      <Button fx:id="registerWerknemerButton" layoutX="350.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#registerWerknemerButton" prefHeight="70.0" prefWidth="138.0" text="Register Werknemer" />
-      <Button fx:id="werknemerLogin" layoutX="350.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#werknemerLogin" prefHeight="70.0" prefWidth="138.0" text="Werknemer Login" />
+      <Button fx:id="managerLogin" layoutX="110.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#managerLogin" prefHeight="70.0" prefWidth="138.0" text="Manager Login" />
+      <Button fx:id="registerManagerButton" layoutX="110.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#registerManagerButton" prefHeight="70.0" prefWidth="138.0" text="Register Manager" />
+      <Button fx:id="registerShiftleaderButton" layoutX="350.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#registerShiftleaderButton" prefHeight="70.0" prefWidth="138.0" text="Register Shiftleader" />
+      <Button fx:id="shiftleaderLogin" layoutX="350.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#shiftleaderLogin" prefHeight="70.0" prefWidth="138.0" text="Shiftleader Login" />
    </children>
 </AnchorPane>

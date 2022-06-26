@@ -4,22 +4,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import Model.Werkgever;
-import Model.Database;
+import Model.Shiftleader;
 import Model.Login;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class RegisterWerkgeverController implements Initializable {
+public class RegisterShiftleaderController implements Initializable {
 
     Login login = Login.getInstance();
 
@@ -36,15 +32,12 @@ public class RegisterWerkgeverController implements Initializable {
     private TextField naamField;
 
     @FXML
-    private TextField werkgeverCodeField;
-
-    @FXML
     private DatePicker myBirthDate;
 
     @FXML
     private Label ErrorField;
 
-    public RegisterWerkgeverController() throws FileNotFoundException {
+    public RegisterShiftleaderController() throws FileNotFoundException {
     }
 
     @FXML
@@ -54,17 +47,14 @@ public class RegisterWerkgeverController implements Initializable {
     }
 
     @FXML
-    void registerWerkgever() throws IOException {
-        Werkgever werkgever = new Werkgever(naamField.getText());
-        werkgever.setWerkgeverCode(werkgeverCodeField.getText());
-        werkgever.setGebruikersnaam(gebruikersnaamField.getText());
-        werkgever.setWachtwoord(wachtwoordField.getText());
-        werkgever.setGeboortedatum(myBirthDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-        werkgever.setContract("werkgeverscontract");
-        werkgever.setFunctionaliteit("werkgever");
-        werkgever.setFiliaal("1530D");
-        Login.getInstance().getDbs().werkgeverFileWriter(werkgever);
-        login.getDbs().addWerkgeverToList(werkgever);
+    void registerShiftleader() throws IOException {
+        Shiftleader shiftleader = new Shiftleader(naamField.getText());
+        shiftleader.setGebruikersnaam(gebruikersnaamField.getText());
+        shiftleader.setWachtwoord(wachtwoordField.getText());
+        shiftleader.setGeboortedatum(myBirthDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        shiftleader.setFiliaal("1530D");
+        Login.getInstance().getDbs().shiftleaderFileWriter(shiftleader);
+        login.getDbs().addShiftleaderToList(shiftleader);
         backToHome();
     }
 
@@ -72,7 +62,7 @@ public class RegisterWerkgeverController implements Initializable {
         if (gebruikersnaamField.getText() != null && wachtwoordField.getText() != null && naamField.getText() != null ) {
 
             if (!login.registerCheck(gebruikersnaamField.getText())) {
-                registerWerkgever();
+                registerShiftleader();
                 backToHome();
             } else {
                 ErrorField.setText("Gebruikersnaam bestaat al.");

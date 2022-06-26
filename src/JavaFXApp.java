@@ -19,7 +19,7 @@ public class JavaFXApp extends Application {
         Image icon = new Image(getClass().getResourceAsStream("icon.png"));
         primaryStage.getIcons().add(icon);
 
-        primaryStage.setTitle("OPT3 KUMBAYA");
+        primaryStage.setTitle("Ah");
         primaryStage.show();
     }
 }

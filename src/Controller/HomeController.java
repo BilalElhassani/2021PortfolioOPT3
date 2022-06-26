@@ -12,24 +12,24 @@ public class HomeController {
     private AnchorPane rootPane;
 
     @FXML
-    void registerWerkgeverButton() throws IOException {
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/RegisterWerkgeverScreen.fxml")));
+    void registerManagerButton() throws IOException {
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/RegisterManagerScreen.fxml")));
         rootPane.getChildren().setAll(pane);
     }
 
     @FXML
-    void registerWerknemerButton() throws IOException {
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/RegisterWerknemerScreen.fxml")));
+    void registerShiftleaderButton() throws IOException {
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/RegisterShiftleaderScreen.fxml")));
         rootPane.getChildren().setAll(pane);
     }
 
-    public void werkgeverLogin() throws IOException {
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/WerkgeverLoginScreen.fxml")));
+    public void managerLogin() throws IOException {
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/ManagerLoginScreen.fxml")));
         rootPane.getChildren().setAll(pane);
     }
 
-    public void werknemerLogin() throws IOException {
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/WerknemerLoginScreen.fxml")));
+    public void shiftleaderLogin() throws IOException {
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/ShiftleaderLoginScreen.fxml")));
         rootPane.getChildren().setAll(pane);
     }
 }
