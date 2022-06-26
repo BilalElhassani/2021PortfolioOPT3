@@ -6,12 +6,10 @@ import java.util.Scanner;
 
 public class Database {
 
-    private ArrayList<Filiaal> filiaals;
     private ArrayList<Gebruiker> gebruikers;
     private Scanner scanner;
 
     public Database(){
-        this.filiaals = new ArrayList<>();
         this.gebruikers = new ArrayList<>();
     }
 

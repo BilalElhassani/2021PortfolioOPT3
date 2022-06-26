@@ -13,10 +13,6 @@ public class Planning {
 
     public void setMedewerkers(int medewerkers) { this.medewerkers = medewerkers; }
 
-    public int getCollies() { return collies; }
-
-    public int getMedewerkers() { return medewerkers; }
-
     public double berekenEindTijd(int collies, int medewerkers){
         aantalMinuten = collies * 2.0;
         eindtijd= (360 + (aantalMinuten / medewerkers)) / 60;
